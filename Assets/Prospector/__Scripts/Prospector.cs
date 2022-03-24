@@ -59,6 +59,19 @@ CardProspector cd = drawPile[0]; // Pull the 0th CardProspector
 drawPile.RemoveAt(0); // Then remove it from List<> drawPile
 return(cd); // And return it
 }
+// Convert from the layoutID int to the CardProspector with that ID
+CardProspector FindCardByLayoutID(int layoutID) {
+foreach (CardProspector tCP in tableau) {
+// Search through all cards in the tableau List<>
+if (tCP.layoutID == layoutID) {
+// If the card has the same ID, return it
+return( tCP );
+}
+}
+// If it's not found, return null
+return( null );
+}
+
 // LayoutGame() positions the initial tableau of cards, a.k.a. the "mine"
 void LayoutGame() {
 // Create an empty GameObject to serve as an anchor for the tableau //1
@@ -90,6 +103,13 @@ cp.SetSortingLayerName(tSD.layerName); // Set the sorting layers
 
 tableau.Add(cp); // Add this CardProspector to the List<> tableau
 }
+// Set which cards are hiding others
+foreach (CardProspector tCP in tableau) {
+foreach( int hid in tCP.slotDef.hiddenBy ) {
+cp = FindCardByLayoutID(hid);
+tCP.hiddenBy.Add(cp);
+}
+}
 
 // Set up the initial target card
 MoveToTarget(Draw ());
@@ -114,11 +134,76 @@ UpdateDrawPile(); // Restacks the drawPile
 break;
 case CardState.tableau:
 // Clicking a card in the tableau will check if it's a valid play
+bool validMatch = true;
+if (!cd.faceUp) {
+// If the card is face-down, it's not valid
+validMatch = false;
+}
+if (!AdjacentRank(cd, target)) {
+// If it's not an adjacent rank, it's not valid
+validMatch = false;
+}
+if (!validMatch) return; // return if not valid
+// Yay! It's a valid card.
+tableau.Remove(cd); // Remove it from the tableau List
+MoveToTarget(cd); // Make it the target card
+SetTableauFaces(); // Update tableau card face-ups
 break;
 }
+// Check to see whether the game is over or not
+CheckForGameOver();
 }
 //end of cardclicked
+// Test whether the game is over
+void CheckForGameOver() {
+// If the tableau is empty, the game is over
+if (tableau.Count==0) {
+// Call GameOver() with a win
+GameOver(true);
+return;
+}
+// If there are still cards in the draw pile, the game's not over
+if (drawPile.Count>0) {
+return;
+}
+// Check for remaining valid plays
+foreach ( CardProspector cd in tableau ) {
+if (AdjacentRank(cd, target)) {
+// If there is a valid play, the game's not over
+return;
+}
+}
+// Since there are no valid plays, the game is over
+// Call GameOver with a loss
+GameOver (false);
+}
+// Called when the game is over. Simple for now, but expandable
+void GameOver(bool won) {
+if (won) {
+print ("Game Over. You won! :)");
+} else {
+print ("Game Over. You Lost. :(");
+}
+// Reload the scene, resetting the game
+Application.LoadLevel("__Prospector_Scene_0");
+}
 
+
+
+
+// This turns cards in the Mine face-up or face-down
+void SetTableauFaces() {
+foreach( CardProspector cd in tableau ) {
+bool fup = true; // Assume the card will be face-up
+foreach( CardProspector cover in cd.hiddenBy ) {
+// If either of the covering cards are in the tableau
+if (cover.state == CardState.tableau) {
+fup = false; // then this card is face-down
+}
+}
+cd.faceUp = fup; // Set the value on the card
+}
+}
 // Moves the current target to the discardPile
 void MoveToDiscard(CardProspector cd) {
 // Set the state of the card to discard
@@ -172,7 +257,20 @@ cd.SetSortingLayerName(layout.drawPile.layerName);
 cd.SetSortOrder(-10*i);
 }
 }
-
+// Return true if the two cards are adjacent in rank (A & K wrap around)
+public bool AdjacentRank(CardProspector c0, CardProspector c1) {
+// If either card is face-down, it's not adjacent.
+if (!c0.faceUp || !c1.faceUp) return(false);
+// If they are 1 apart, they are adjacent
+if (Mathf.Abs(c0.rank - c1.rank) == 1) {
+return(true);
+}
+// If one is A and the other King, they're adjacent
+if (c0.rank == 1 && c1.rank == 13) return(true);
+if (c0.rank == 13 && c1.rank == 1) return(true);
+// Otherwise, return false
+return(false);
+}
 
 // end
 }
