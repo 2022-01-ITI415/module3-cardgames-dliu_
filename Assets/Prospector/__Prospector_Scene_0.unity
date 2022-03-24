@@ -337,6 +337,14 @@ MonoBehaviour:
   deck: {fileID: 0}
   layout: {fileID: 0}
   layoutXML: {fileID: 4900000, guid: 61f3f05951a2f4d98b35bddbc7549908, type: 3}
+  layoutCenter: {x: 0, y: 0, z: 0}
+  xOffset: 3
+  yOffset: -2.5
+  layoutAnchor: {fileID: 0}
+  target: {fileID: 0}
+  tableau: []
+  discardPile: []
+  drawPile: []
 --- !u!850595691 &1292306373
 LightingSettings:
   m_ObjectHideFlags: 0
