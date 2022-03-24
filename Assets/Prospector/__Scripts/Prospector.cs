@@ -30,10 +30,10 @@ public class Prospector : MonoBehaviour
 	public Transform fsPosMid2Object;
 	public Transform fsPosEndObject;
 
-	public Vector3 fsPosMid = new Vector3(0.5f, 0.90f, 0);
-	public Vector3 fsPosRun = new Vector3(0.5f, 0.75f, 0);
-	public Vector3 fsPosMid2 = new Vector3(0.5f, 0.5f, 0);
-	public Vector3 fsPosEnd = new Vector3(1.0f, 0.65f, 0);
+	public Vector3 fsPosMid;
+	public Vector3 fsPosRun;
+	public Vector3 fsPosMid2;
+	public Vector3 fsPosEnd;
 
 	[Header("Card management")]
 	public Deck deck;
