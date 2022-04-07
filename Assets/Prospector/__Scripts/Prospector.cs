@@ -19,8 +19,8 @@ public class Prospector : MonoBehaviour
 	#region Fields
 	[Header("Game flow management")]
 	static public Prospector S;
-	static public int SCORE_FROM_PREVIOUS_ROUND = 0;
-	static public int HIGH_SCORE = 0;
+	static public int SCORE_FROM_PREVIOUS_ROUND = 24;
+	static public int HIGH_SCORE = 24;
 
 	public float reloadDelay = 5.0f; //The delay between rounds
 
@@ -53,8 +53,8 @@ public class Prospector : MonoBehaviour
 	[Header("Score management")]
 	//Fields to track score info
 	public int chain = 0; //of cards in this run
-	public int scoreRun = 0;
-	public int score = 0;
+	public int scoreRun = 24;
+	public int score = 24;
 	public FloatingScore fsRun;
 	public Text GTGameOver;
 	public Text GTRoundResult;
@@ -438,7 +438,7 @@ public class Prospector : MonoBehaviour
 		case ScoreEvent.gameWin: //Won the round
 		case ScoreEvent.gameLoss: //Lost the round
 			chain = 0; //resets the score chain
-			score += scoreRun; //Add scoreRun to the total score
+			score -= scoreRun; //Add scoreRun to the total score
 			scoreRun = 0; //reset scoreRun
 
 			//Add fsRun to the _Scoreboard score
@@ -516,7 +516,7 @@ public class Prospector : MonoBehaviour
 			ShowResultsGTs(true);
 			break;
 		default: 
-			//print("score: " + score + " scoreRun: " + scoreRun + " chain: " + chain);
+			print("score: " + score + " scoreRun: " + scoreRun + " chain: " + chain);
 			break;
 		}
 	}
