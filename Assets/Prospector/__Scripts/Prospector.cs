@@ -500,7 +500,7 @@ public class Prospector : MonoBehaviour
 		case ScoreEvent.gameLoss:
 			GTGameOver.text = "Game Over";
 			//If it's a loss, check against the high score
-			if (Prospector.HIGH_SCORE <= score)
+			if (Prospector.HIGH_SCORE >= score)
 			{
 				//print("You got the high score! High score: " + score);
 				string sRR = "You got the high score!\nHigh score: " + score;
