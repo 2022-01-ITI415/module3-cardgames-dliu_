@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -639,7 +639,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   deckXML: {fileID: 4900000, guid: c76312a0fb08948699e1abf935e4a957, type: 3}
   layout: {fileID: 0}
-  layoutXML: {fileID: 4900000, guid: dfbdd14e4f8136448a8c5b438b3fcedc, type: 3}
+  layoutXML: {fileID: 4900000, guid: 80d8750dacff2e14da7888af100a5ee5, type: 3}
   layoutCenter: {x: 0, y: 0, z: 0}
   xOffset: 3
   yOffset: -2.5

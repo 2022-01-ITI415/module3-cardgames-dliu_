@@ -19,7 +19,7 @@
 	<!-- Layer1, the next level. -->
 	<slot id="3" x="-7" y="-4" faceup="0" layer="1" hiddenby="9,10" />
 	<slot id="4" x="-5" y="-4" faceup="0" layer="1" hiddenby="10,11" />
-	<slot id="5" x="-1" y="-4" faceup="0" layer="1" hiddenby="12,13" />
+	<slot id="5" x="-1" y="-4" faceup="0" layer="1" hiddenby="8" />
 	<slot id="6" x="1"  y="-4" faceup="0" layer="1" hiddenby="13,14" />
 	<slot id="7" x="5"  y="-4" faceup="0" layer="1" hiddenby="15,16" />
 	<slot id="8" x="7"  y="-4" faceup="0" layer="1" hiddenby="16,17" />
