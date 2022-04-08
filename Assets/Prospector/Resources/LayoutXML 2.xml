@@ -15,34 +15,32 @@
 	<slot id="0" x="-7" y="-2" faceup="1" layer="0"   />
 	<slot id="1" x="-5"  y="-2" faceup="1" layer="0"  />
 	<slot id="2" x="-3"  y="-2" faceup="1" layer="0" />
-	<slot id="3" x="-1" y="-2" faceup="1" layer="1" />
-	<slot id="4" x="1" y="-2" faceup="1" layer="1"  />
-	<slot id="5" x="3" y="-2" faceup="1" layer="1"  />
-	<slot id="6" x="5"  y="-2" faceup="1" layer="1"  />
-	<slot id="7" x="7"  y="-2" faceup="1" layer="1"  />
+	<slot id="3" x="-1" y="-2" faceup="1" layer="0" />
+	<slot id="4" x="1" y="-2" faceup="1" layer="0"  />
+	<slot id="5" x="3" y="-2" faceup="1" layer="0"  />
+	<slot id="6" x="5"  y="-2" faceup="1" layer="0"  />
+	<slot id="7" x="7"  y="-2" faceup="1" layer="0"  />
 
-	<slot id="8" x="3"  y="-3" faceup="1" layer="1"  />
-	
+	<slot id="8" x="3"  y="-4" faceup="1" layer="1"  />
+	<slot id="9"  x="-7" y="-4" faceup="1" layer="1"  />
+	<slot id="10" x="-5" y="-4" faceup="1" layer="1" />
+	<slot id="11" x="-3" y="-4" faceup="1" layer="1" />
+	<slot id="12" x="-1" y="-4" faceup="1" layer="1"  />
+	<slot id="13" x="1"  y="-4" faceup="1" layer="1" />
+	<slot id="14" x="3"  y="-4" faceup="1" layer="1"  />
+	<slot id="15" x="5"  y="-4" faceup="1" layer="1" />
 
-	<slot id="9"  x="-7" y="-4" faceup="1" layer="2"  />
-	<slot id="10" x="-5" y="-4" faceup="1" layer="2" />
-	<slot id="11" x="-3" y="-4" faceup="1" layer="2" />
-	<slot id="12" x="-1" y="-4" faceup="1" layer="2"  />
-	<slot id="13" x="1"  y="-4" faceup="1" layer="2" />
-	<slot id="14" x="3"  y="-4" faceup="1" layer="2"  />
-	<slot id="15" x="5"  y="-4" faceup="1" layer="2" />
+
+
 	<slot id="16" x="7"  y="-4" faceup="1" layer="2"  />
-
-	
-
-	<slot id="17" x="-7" y="-5" faceup="1" layer="3" />
-	<slot id="18" x="-5" y="-5" faceup="1" layer="3" />
-	<slot id="19" x="-3" y="-5" faceup="1" layer="3" />
-	<slot id="20" x="-1" y="-5" faceup="1" layer="3" />
-	<slot id="21" x="1" y="-5" faceup="1" layer="3" />
-	<slot id="22" x="3"  y="-5" faceup="1" layer="3" />
-	<slot id="23" x="5"  y="-5" faceup="1" layer="3" />
-	<slot id="24" x="7"  y="-5" faceup="1" layer="3" />
+	<slot id="17" x="-7" y="-5" faceup="1" layer="2" />
+	<slot id="18" x="-5" y="-5" faceup="1" layer="2" />
+	<slot id="19" x="-3" y="-5" faceup="1" layer="2" />
+	<slot id="20" x="-1" y="-5" faceup="1" layer="2" />
+	<slot id="21" x="1" y="-5" faceup="1" layer="2" />
+	<slot id="22" x="3"  y="-5" faceup="1" layer="2" />
+	<slot id="23" x="5"  y="-5" faceup="1" layer="2" />
+	<slot id="24" x="7"  y="-5" faceup="1" layer="2" />
 	
 	
 	
@@ -50,7 +48,7 @@
 	<slot type="drawpile" x="4" y="4" xstagger="0.15" layer="4"/>
 	
 	<!-- This positions the discard pile and target card -->
-	<slot type="discardpile" x="0" y="4" layer="5"/>
+	<slot type="discardpile" x="0" y="10" layer="5"/>
 	
 </xml>
 	

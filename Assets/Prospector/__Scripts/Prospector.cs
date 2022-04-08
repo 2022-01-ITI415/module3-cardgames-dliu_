@@ -327,6 +327,14 @@ public class Prospector : MonoBehaviour
 	//Return true if the two cards are adjacent in rank (A & K wrap around)
 	public bool AdjacentRank(CardProspector c0, CardProspector c1)
 	{
+		//only top row
+		print (c0.slotDef.layerName);
+		print(c1.slotDef.layerName);
+		// if (c0.slotDef.layerName != c1.slotDef.layerName)
+		// {
+		// 	return (false);
+		// }
+
 		//If either card is face-down, it's not adjacent
 		if (!c0.faceUp || !c1.faceUp)
 		{
