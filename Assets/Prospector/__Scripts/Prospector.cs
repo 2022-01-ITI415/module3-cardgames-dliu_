@@ -124,6 +124,10 @@ public class Prospector : MonoBehaviour
 		fsPosRun = fsPosRunObject.position;
 		fsPosMid2 = fsPosMid2Object.position;
 		fsPosEnd = fsPosEndObject.position;
+
+		// wrong position for target
+		print(target.gameObject);
+		target.gameObject.transform.position= new Vector3( 0,5,0);
 	}
 	
 	List<CardProspector> ConvertListCardsToListCardProspectors(List<Card> lCD)
@@ -227,6 +231,10 @@ public class Prospector : MonoBehaviour
 			MoveToDiscard(target); //Moves the target to the discardPile
 			MoveToTarget(Draw()); //Moves the next drawn card to the target
 			UpdateDrawPile(); //Restacks the DrawPile
+			// wrong position for target
+			print(target.gameObject);
+			target.gameObject.transform.position= new Vector3( 0,7,0);
+
 			ScoreManager(ScoreEvent.draw);
 			break;
 		case CardState.tableau:
@@ -268,7 +276,7 @@ public class Prospector : MonoBehaviour
 		cd.transform.parent = layoutAnchor; //Update its transform parent
 		cd.transform.localPosition = new Vector3(
 			layout.multiplier.x * layout.discardPile.x,
-			layout.multiplier.y * layout.multiplier.y,
+			7,
 			-layout.discardPile.layerID + 0.5f); //Position it on the discardPile
 		cd.faceUp = true;
 
@@ -289,7 +297,7 @@ public class Prospector : MonoBehaviour
 		//Move to the target position
 		cd.transform.localPosition = new Vector3(
 			layout.multiplier.x * layout.discardPile.x,
-			layout.multiplier.y * layout.multiplier.y,
+			7,
 			-layout.discardPile.layerID);
 		cd.faceUp = true; //Make it face-up
 

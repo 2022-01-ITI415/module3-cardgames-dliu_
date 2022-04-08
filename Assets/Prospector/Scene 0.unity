@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -628,10 +628,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadDelay: 5
-  fsPosMidObject: {fileID: 0}
-  fsPosRunObject: {fileID: 0}
-  fsPosMid2Object: {fileID: 0}
-  fsPosEndObject: {fileID: 0}
+  fsPosMidObject: {fileID: 107486451}
+  fsPosRunObject: {fileID: 2048391440}
+  fsPosMid2Object: {fileID: 273381214}
+  fsPosEndObject: {fileID: 1444711949}
   fsPosMid: {x: 0, y: 0, z: 0}
   fsPosRun: {x: 0, y: 0, z: 0}
   fsPosMid2: {x: 0, y: 0, z: 0}
