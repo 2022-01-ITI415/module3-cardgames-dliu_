@@ -127,7 +127,7 @@ public class Prospector : MonoBehaviour
 
 		// wrong position for target
 		print(target.gameObject);
-		target.gameObject.transform.position= new Vector3( 0,5,0);
+		target.gameObject.transform.position= new Vector3( 0,7,0);
 	}
 	
 	List<CardProspector> ConvertListCardsToListCardProspectors(List<Card> lCD)
@@ -240,11 +240,22 @@ public class Prospector : MonoBehaviour
 		case CardState.tableau:
 			//Clicking a card in the tableau will check if it's a valid play
 			bool validMatch = true;
+			
+			
+			
 			if (!cd.faceUp)
 			{
 				//If the card is face-down, it's not valid
 				validMatch = false;
 			}
+
+			if (!topRow(cd))
+			{
+				//If the card is not in the topmost row, it's not valid
+				validMatch = false;
+			}
+
+
 			if (!AdjacentRank(cd, target))
 			{
 				//If it's not an adjacent rank, it's not valid
@@ -332,16 +343,58 @@ public class Prospector : MonoBehaviour
 		}
 	}
 
+	//Return true if card is in top row
+	public bool topRow(CardProspector c)
+	{
+		int currRow;
+		int firstRow; 
+		int targetRow;
+
+		string firsttargetRow= c.slotDef.layerName;
+		int firsttargetRowLen= firsttargetRow.Length-1;
+		string targetRowStr= firsttargetRow[firsttargetRowLen].ToString();
+		// get targetrow
+		targetRow= int.Parse(targetRowStr);
+		
+		string firstElementRow= tableau[0].slotDef.layerName;
+		int firstElementRowLen= firstElementRow.Length-1;
+		string firstElement = firstElementRow[firstElementRowLen].ToString(); 
+
+
+
+		print("target  row "+targetRow);
+		// get top row
+		firstRow= int.Parse(firstElement);
+		print("firstRow "+firstRow);
+		// targetRow is not top row
+		if (targetRow!= firstRow){
+			return false;
+		}
+
+		string currRowString;
+		int currRowLen;
+		string currRowElement; 
+
+		
+		// find another card in the top row
+		foreach (CardProspector cd in tableau){
+			//get current row
+			currRowString= cd.slotDef.layerName;
+			currRowLen= currRowString.Length-1;
+			currRowElement = currRowString[currRowLen].ToString(); 
+			currRow= int.Parse(currRowElement);
+
+			print("targetrowitr "+targetRow);
+			print ("currenrowitr"+ cd.gameObject + currRow.ToString());
+			if (cd != c && currRow == targetRow)
+				return true;
+		}
+
+		return false;
+	}
 	//Return true if the two cards are adjacent in rank (A & K wrap around)
 	public bool AdjacentRank(CardProspector c0, CardProspector c1)
 	{
-		//only top row
-		print (c0.slotDef.layerName);
-		print(c1.slotDef.layerName);
-		// if (c0.slotDef.layerName != c1.slotDef.layerName)
-		// {
-		// 	return (false);
-		// }
 
 		//If either card is face-down, it's not adjacent
 		if (!c0.faceUp || !c1.faceUp)
