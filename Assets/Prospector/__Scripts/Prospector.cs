@@ -461,7 +461,7 @@ public class Prospector : MonoBehaviour
 	void ReloadLevel()
 	{
 		//Reload trhe scene, resetting the game
-		SceneManager.LoadScene("Scene 0");
+		SceneManager.LoadScene("GolfSolitaireScene");
 	}
 
 	//ScoreManager handles all the scoring

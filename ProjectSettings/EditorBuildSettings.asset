@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Prospector/mainScene.unity
     guid: f126f207300ec4022bbd7d71b769f57c
   - enabled: 1
-    path: Assets/Prospector/_Prospector Scene 0.unity
+    path: Assets/Prospector/GolfSolitaire.unity
     guid: 62fbd4fc800b2491ca8a0a749feb2eb5
   m_configObjects: {}
