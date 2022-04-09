@@ -19,8 +19,8 @@ public class Prospector : MonoBehaviour
 	#region Fields
 	[Header("Game flow management")]
 	static public Prospector S;
-	static public int SCORE_FROM_PREVIOUS_ROUND = 45;
-	static public int HIGH_SCORE = 45;
+	static public int SCORE_FROM_PREVIOUS_ROUND = 100;
+	static public int HIGH_SCORE = 100;
 
 	public float reloadDelay = 5.0f; //The delay between rounds
 
@@ -52,9 +52,9 @@ public class Prospector : MonoBehaviour
 
 	[Header("Score management")]
 	//Fields to track score info
-	public int chain = 0; //of cards in this run
-	public int scoreRun = 24;
-	public int score = 24;
+	public int chain = 0; 
+	public int scoreRun = 0;
+	public int score = 0;
 	public FloatingScore fsRun;
 	public Text GTGameOver;
 	public Text GTRoundResult;
@@ -71,11 +71,11 @@ public class Prospector : MonoBehaviour
 			HIGH_SCORE = PlayerPrefs.GetInt("ProspectorHighScore");
 		}
 
-		//Add the score from the last round, which will be >0 if it was a win
+		//Add the score from the last round, which will be >100 if it was a win
 		score += SCORE_FROM_PREVIOUS_ROUND;
 
 		//And reset the SCORE_FROM_PREVIOUS_ROUND
-		SCORE_FROM_PREVIOUS_ROUND = 0;
+		SCORE_FROM_PREVIOUS_ROUND = 100;
 
 		//Set up the Texts that show at the end of the round. Set the Text Components
 		GameObject go = GameObject.Find("GameOver");
@@ -461,7 +461,7 @@ public class Prospector : MonoBehaviour
 	void ReloadLevel()
 	{
 		//Reload trhe scene, resetting the game
-		SceneManager.LoadScene("GolfSolitaireScene");
+		SceneManager.LoadScene("GolfSolitaire");
 	}
 
 	//ScoreManager handles all the scoring

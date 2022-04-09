@@ -11,7 +11,7 @@ public class Scoreboard : MonoBehaviour
 	public GameObject prefabFloatingScore;
 
 	[SerializeField]
-	private int _score = 0;
+	private int _score = 100;
 	public string _scoreString;
 	public Transform canvas;
 
