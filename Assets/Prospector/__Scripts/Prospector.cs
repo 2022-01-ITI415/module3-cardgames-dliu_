@@ -128,6 +128,7 @@ public class Prospector : MonoBehaviour
 		// wrong position for target
 		print(target.gameObject);
 		target.gameObject.transform.position= new Vector3( 0,7,0);
+
 	}
 	
 	List<CardProspector> ConvertListCardsToListCardProspectors(List<Card> lCD)
