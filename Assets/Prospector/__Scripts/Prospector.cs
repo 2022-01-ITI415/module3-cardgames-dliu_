@@ -249,9 +249,9 @@ public class Prospector : MonoBehaviour
 				validMatch = false;
 			}
 
-			if (!topRow(cd))
+			if (!topColumn(cd))
 			{
-				//If the card is not in the topmost row, it's not valid
+				//If the card is not the topmost card of its column, it's not valid
 				validMatch = false;
 			}
 
@@ -343,54 +343,22 @@ public class Prospector : MonoBehaviour
 		}
 	}
 
-	//Return true if card is in top row
-	public bool topRow(CardProspector c)
-	{
-		int currRow;
-		int firstRow; 
-		int targetRow;
-
-		string firsttargetRow= c.slotDef.layerName;
-		int firsttargetRowLen= firsttargetRow.Length-1;
-		string targetRowStr= firsttargetRow[firsttargetRowLen].ToString();
-		// get targetrow
-		targetRow= int.Parse(targetRowStr);
-		
-		string firstElementRow= tableau[0].slotDef.layerName;
-		int firstElementRowLen= firstElementRow.Length-1;
-		string firstElement = firstElementRow[firstElementRowLen].ToString(); 
-
-
-
-		print("target  row "+targetRow);
-		// get top row
-		firstRow= int.Parse(firstElement);
-		print("firstRow "+firstRow);
-		// targetRow is not top row
-		if (targetRow!= firstRow){
-			return false;
-		}
-
-		string currRowString;
-		int currRowLen;
-		string currRowElement; 
-
-		
-		// find another card in the top row
-		foreach (CardProspector cd in tableau){
-			//get current row
-			currRowString= cd.slotDef.layerName;
-			currRowLen= currRowString.Length-1;
-			currRowElement = currRowString[currRowLen].ToString(); 
-			currRow= int.Parse(currRowElement);
-
-			print("targetrowitr "+targetRow);
-			print ("currenrowitr"+ cd.gameObject + currRow.ToString());
-			if (cd != c && currRow == targetRow)
-				return true;
-		}
-
-		return false;
+	//Return true if card is topmost of its column
+	int currCol; 
+	int targetCol;
+	public bool topColumn(CardProspector c)
+		{
+		int targetCol = c.slotDef.column;
+		//get current column
+		foreach (CardProspector currCard in tableau) {
+			currCol= currCard.slotDef.column;
+			print("targetCol "+targetCol);
+			// if targetColumn is lower than currCol and same x, return false
+			if (currCard != c && currCol< targetCol && c.slotDef.x == currCard.slotDef.x )
+				return false;
+			}
+		//else	
+		return true;
 	}
 	//Return true if the two cards are adjacent in rank (A & K wrap around)
 	public bool AdjacentRank(CardProspector c0, CardProspector c1)

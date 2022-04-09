@@ -12,6 +12,7 @@ public class SlotDef
 	public string layerName = "Default";
 	public int layerID = 0;
 	public int id;
+	public int column;
 	public List<int> hiddenBy = new List<int>();
 	public string type = "slot";
 	public Vector2 stagger;
@@ -65,6 +66,14 @@ public class Layout : MonoBehaviour
 			tSD.x = float.Parse(slotsX[i].att("x"));
 			tSD.y = float.Parse(slotsX[i].att("y"));
 			tSD.layerID = int.Parse(slotsX[i].att("layer"));
+
+
+			if (slotsX[i].HasAtt("column"))
+			{
+				//If this <slot> has a column attribute, parse it
+				tSD.column = int.Parse(slotsX[i].att("column"));
+			}
+
 
 			//This converts the number of the layerID into a text layerName
 			tSD.layerName = sortingLayerNames[tSD.layerID];
