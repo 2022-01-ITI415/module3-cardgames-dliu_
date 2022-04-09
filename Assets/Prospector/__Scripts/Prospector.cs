@@ -19,8 +19,8 @@ public class Prospector : MonoBehaviour
 	#region Fields
 	[Header("Game flow management")]
 	static public Prospector S;
-	static public int SCORE_FROM_PREVIOUS_ROUND = 24;
-	static public int HIGH_SCORE = 24;
+	static public int SCORE_FROM_PREVIOUS_ROUND = 45;
+	static public int HIGH_SCORE = 45;
 
 	public float reloadDelay = 5.0f; //The delay between rounds
 
@@ -429,7 +429,7 @@ public class Prospector : MonoBehaviour
 		//Check for remaining valid plays
 		foreach (CardProspector cd in tableau)
 		{
-			if (AdjacentRank(cd, target))
+			if (AdjacentRank(cd, target) && topColumn(cd))
 			{
 				//If there's a valid play, the game's not over
 				return;
