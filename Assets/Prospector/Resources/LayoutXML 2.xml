@@ -1,0 +1,62 @@
+<xml>
+	<!-- Layout Test-->
+	<!-- This file holds info for laying out the Prospector card game. -->
+	
+	<!-- The multiplier is multiplied by the x and y attributes below. -->
+	<!-- This determines how loose or tight the layout is. --> 
+	<multiplier x="1.5" y="1.5" />
+	
+	<!-- In the XML below, id is the number of the card -->
+	<!-- x and y set position -->
+	<!-- faceup is 1 if the card is face-up -->
+	<!-- layer sets the depth layer so cards overlap properly -->
+	<!-- hiddenby is the ids of cards that keep a card face-down -->
+
+	<slot id="0" x="-7" y="0" faceup="1" layer="0" column="0"  />
+	<slot id="1" x="-5"  y="0" faceup="1" layer="0"  column="0"/>
+	<slot id="2" x="-3"  y="0" faceup="1" layer="0" column="0"/>
+	<slot id="3" x="-1" y="0" faceup="1" layer="0" column="0"/>
+	<slot id="4" x="1" y="0" faceup="1" layer="0"  column="0"/>
+	<slot id="5" x="3" y="0" faceup="1" layer="0"  column="0"/>
+	<slot id="6" x="5"  y="0" faceup="1" layer="0"  column="0"/>
+
+	<slot id="7" x="-7"  y="-1" faceup="1" layer="1"  column="1"/>
+	<slot id="8" x="-5"  y="-1" faceup="1" layer="1"  column="1"/>
+	<slot id="9"  x="-3" y="-1" faceup="1" layer="1"  column="1"/>
+	<slot id="10" x="-1" y="-1" faceup="1" layer="1" column="1"/>
+	<slot id="11" x="1" y="-1" faceup="1" layer="1" column="1"/>
+	<slot id="12" x="3" y="-1" faceup="1" layer="1"  column="1"/>
+	<slot id="13" x="5"  y="-1" faceup="1" layer="1" column="1"/>
+
+	<slot id="14" x="-7"  y="-2" faceup="1" layer="2"  column="2"/>
+	<slot id="15" x="-5"  y="-2" faceup="1" layer="2" column="2"/>
+	<slot id="16" x="-3"  y="-2" faceup="1" layer="2"  column="2"/>
+	<slot id="17" x="-1" y="-2" faceup="1" layer="2" column="2"/>
+	<slot id="18" x="1" y="-2" faceup="1" layer="2" column="2"/>
+	<slot id="19" x="3" y="-2" faceup="1" layer="2" column="2"/>
+	<slot id="20" x="5" y="-2" faceup="1" layer="2" column="2"/>
+
+	<slot id="21" x="-7" y="-3" faceup="1" layer="3" column="3"/>
+	<slot id="22" x="-5"  y="-3" faceup="1" layer="3" column="3"/>
+	<slot id="23" x="-3"  y="-3" faceup="1" layer="3" column="3"/>
+	<slot id="24" x="-1"  y="-3" faceup="1" layer="3" column="3"/>
+	<slot id="25" x="1"  y="-3" faceup="1" layer="3" column="3"/>
+	<slot id="26" x="3"  y="-3" faceup="1" layer="3" column="3"/>
+	<slot id="27" x="5"  y="-3" faceup="1" layer="3" column="3"/>
+
+	<slot id="28" x="-7" y="-4" faceup="1" layer="4" column="4"/>
+	<slot id="29" x="-5"  y="-4" faceup="1" layer="4" column="4"/>
+	<slot id="30" x="-3"  y="-4" faceup="1" layer="4" column="4"/>
+	<slot id="31" x="-1"  y="-4" faceup="1" layer="4" column="4"/>
+	<slot id="32" x="1"  y="-4" faceup="1" layer="4" column="4"/>
+	<slot id="33" x="3"  y="-4" faceup="1" layer="4" column="4"/>
+	<slot id="34" x="5"  y="-4" faceup="1" layer="4" column="4"/>
+	
+	<!-- This positions the draw pile and staggers it -->
+	<slot type="drawpile" x="4" y="4" xstagger="0.15" layer="5"/>
+	
+	<!-- This positions the discard pile and target card -->
+	<slot type="discardpile" x="0" y="9"  layer="6"/>
+	
+</xml>
+	
